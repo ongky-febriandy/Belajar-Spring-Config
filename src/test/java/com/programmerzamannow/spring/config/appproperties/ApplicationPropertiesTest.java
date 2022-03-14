@@ -1,5 +1,4 @@
-package environment;
-
+package com.programmerzamannow.spring.config.appproperties;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,20 +7,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 
-@SpringBootTest(classes = EnvironmentTest.TestApplication.class)
-public class EnvironmentTest {
+
+@SpringBootTest(classes = ApplicationPropertiesTest.TestApplication.class)
+public class ApplicationPropertiesTest {
 
     @Autowired
     private Environment environment;
 
     @Test
-    void testEnvironment() {
-        String javaHome = environment.getProperty("JAVA_HOME");
-//        Assertions.assertEquals();
+    void testApplicationProperties() {
+        String applicationName = environment.getProperty("application.name");
+        Assertions.assertEquals("Belajar Spring Boot", applicationName);
+
     }
 
     @SpringBootApplication
     public static class TestApplication{
+
 
     }
 }
